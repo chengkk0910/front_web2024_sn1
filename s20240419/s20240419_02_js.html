@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 50%;
+            background-color: #ccc;
+            text-align: center;
+            margin: auto;
+        }
+
+        input[type="text"]t {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>
+            <label for="">Num1</label>
+            <br>
+            <input type="text" name="num1" id="num1">
+        </p>
+        <p>
+            <label for="">Opt</label>
+            <br>
+            <!-- <input type="text" name="opt" id="opt"> -->
+
+            <select name="opt" id="opt">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        </p>
+        <p>
+            <label for="">Num2</label>
+            <br>
+            <input type="text" name="num2" id="num2">
+        </p>
+        <p>
+            <input type="submit" value="myBtn" id="myBtn">
+        </p>
+        <p>
+            <span id="mySpan">...</span>
+        </p>
+    </div>
+    <script>
+        // 1.bind
+        const num1 = document.getElementById('num1');
+        const num2 = document.getElementById('num2');
+        const opt = document.getElementById('opt');
+        const myBtn = document.getElementById('myBtn');
+        const mySpan = document.getElementById('mySpan');
+
+        // console.log(num1);
+        myBtn.addEventListener('click', function () {
+            // text value
+            let getNum1 = Number(num1.value);
+            let getNum2 = Number(num2.value);
+            let getOpt = opt.value;
+            console.log('getNum1', getNum1);
+            console.log('getNum2', getNum2);
+            console.log('getOpt', getOpt);
+            // let result = getNum1 + getNum2;
+            // console.log('result', result);
+
+            let result = 0;
+            switch (getOpt) {
+                case '+':
+                    result = getNum1 + getNum2;
+                    break;
+                case '-':
+                    result = getNum1 - getNum2;
+                    break;
+                case '*':
+                    result = getNum1 * getNum2;
+                    break;
+                case '/':
+                    result = getNum1 / getNum2;
+                    break;
+
+                default:
+                    break;
+            }
+
+            console.log('result', result);
+            mySpan.innerText = result;
+
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

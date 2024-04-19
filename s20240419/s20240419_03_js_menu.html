@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        tr,
+        td,
+        th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Photo</th>
+            <th>Price</th>
+            <th>Count</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>
+                <img src="https://picsum.photos/id/20/150/120" alt="">
+            </td>
+            <td>
+                <input type="text" name="" id="itemPrice1">
+            </td>
+            <td>
+                <input type="number" name="" id="itemCount1">
+            </td>
+            <td>
+                <input type="number" name="" id="itemTotal1">
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        // function
+        function getTotal() {
+            // console.log('change ok');
+            let getPrice = Number(itemPrice1.value);
+            let getCount = Number(itemCount1.value);
+            // let getTotal = Number(itemTotal1.value);
+            console.log('getPrice', getPrice);
+            console.log('getCount', getCount);
+            itemTotal1.value = getPrice * getCount;
+        }
+
+        // 綁定
+        const itemPrice1 = document.getElementById('itemPrice1');
+        const itemCount1 = document.getElementById('itemCount1');
+        const itemTotal1 = document.getElementById('itemTotal1');
+
+        // 事件
+        itemPrice1.addEventListener('change', function () {
+            getTotal();
+        });
+        itemCount1.addEventListener('change', function () {
+            getTotal();
+        });
+    </script>
+
+</body>
+
+</html>
